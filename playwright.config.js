@@ -57,14 +57,11 @@ export default defineConfig({
   },
 
   /*
-   * ---------------------------------------------------------------------------
-   * PLACEHOLDER (wired in a later commit — intentionally left commented out):
-   * a global setup step will accept the OneTrust cookie banner once and save the
-   * consented browser state, then every project reuses it via `storageState`
-   * (see the `.auth/` dir, already gitignored). Do NOT enable yet.
-   * ---------------------------------------------------------------------------
+   * Accept the OneTrust cookie banner once and persist the consented browser
+   * state to `.auth/consent.json` (gitignored). Every project below reuses it
+   * via `storageState`, so tests start already-consented.
    */
-  // globalSetup: './tests/global-setup.js',
+  globalSetup: './tests/global-setup.js',
 
   /* Configure projects for major browsers */
   projects: [
@@ -72,21 +69,21 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        // storageState: '.auth/consent.json', // enabled alongside globalSetup in a later commit
+        storageState: '.auth/consent.json',
       },
     },
     {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        // storageState: '.auth/consent.json',
+        storageState: '.auth/consent.json',
       },
     },
     {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
-        // storageState: '.auth/consent.json',
+        storageState: '.auth/consent.json',
       },
     },
 
