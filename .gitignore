@@ -1,8 +1,18 @@
-
-# Playwright
+# Dependencies
 node_modules/
+
+# Playwright output
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Environment files (secrets / per-machine config)
+.env
+
+# Saved browser state (cookie consent / auth) — wired in a later commit
+/.auth/
 /playwright/.auth/
+
+# Playwright MCP scratch output (local investigation only)
+/.playwright-mcp/

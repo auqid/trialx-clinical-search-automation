@@ -1,9 +1,15 @@
 {
   "name": "trialx-clinical-search-automation",
   "version": "1.0.0",
-  "description": "Playwright + TypeScript automation framework for the Trial X Clinical Trials Search application, including UI, accessibility, security, responsive, and regression testing.",
+  "description": "Playwright + JavaScript automation framework for the Trial X Clinical Trials Search application, including UI, accessibility, security, responsive, and regression testing.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/auqid/trialx-clinical-search-automation.git"
@@ -17,7 +23,16 @@
   },
   "homepage": "https://github.com/auqid/trialx-clinical-search-automation#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.61.1",
-    "@types/node": "^26.1.0"
+    "@types/node": "^26.1.0",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.10.4",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.4"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }

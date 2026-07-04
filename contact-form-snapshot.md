@@ -1,0 +1,54 @@
+- generic [ref=f18e111]:
+  - paragraph [ref=f18e112]: Send a message
+  - paragraph [ref=f18e113]: Enter your contact details to connect with study team
+  - generic [ref=f18e116]:
+    - generic [ref=f18e117]:
+      - img "Investigator Avatar" [ref=f18e118]
+      - generic [ref=f18e119]:
+        - heading "siteusertest0009" [level=6] [ref=f18e120]
+        - paragraph [ref=f18e121]: Primary Contact
+    - generic [ref=f18e122]:
+      - img [ref=f18e124]
+      - generic [ref=f18e127]:
+        - heading "teest22" [level=6] [ref=f18e128]
+        - paragraph
+  - text: 
+  - generic [ref=f18e129]:
+    - generic [ref=f18e130]:
+      - generic [ref=f18e131]:
+        - generic [ref=f18e132]: First name*
+        - textbox "First name*" [ref=f18e134]:
+          - /placeholder: ""
+      - generic [ref=f18e135]:
+        - generic [ref=f18e136]: Last name*
+        - textbox "Last name*" [ref=f18e138]:
+          - /placeholder: ""
+    - generic [ref=f18e139]:
+      - generic [ref=f18e140]: Email*
+      - textbox "Email*" [ref=f18e142]:
+        - /placeholder: ""
+    - generic [ref=f18e143]:
+      - generic [ref=f18e144]: Phone number*
+      - generic [ref=f18e146]:
+        - 'combobox "United States: +1" [ref=f18e148]':
+          - generic [ref=f18e150]: "+1"
+        - textbox "Phone number*" [ref=f18e152]:
+          - /placeholder: 201-555-0123
+    - generic [ref=f18e154]:
+      - checkbox "I am at least 18 years old." [ref=f18e155]
+      - generic [ref=f18e156]: I am at least 18 years old.
+    - generic [ref=f18e159]:
+      - checkbox "By sending a message, I agree to share my information with the study team for the selected site and consent to receive emails and text messages for trial updates, notifications, and related communication. TrialX values your privacy; your information will be handled in accordance with our Privacy Policy" [ref=f18e160]
+      - generic [ref=f18e162]:
+        - text: By sending a message, I agree to share my information with the study team for the selected site and consent to receive emails and text messages for trial updates, notifications, and related communication. TrialX values your privacy; your information will be handled in accordance with our
+        - link "Privacy Policy" [ref=f18e163] [cursor=pointer]:
+          - /url: https://www.trialx.com/privacy-policy
+    - generic [ref=f18e164]:
+      - button "Send Message" [ref=f18e165] [cursor=pointer]:
+        - generic [ref=f18e166]:
+          - img [ref=f18e167]
+          - text: Back
+      - button "Send Message" [ref=f18e169] [cursor=pointer]:
+        - generic [ref=f18e171]:
+          - img [ref=f18e172]
+          - text: Send

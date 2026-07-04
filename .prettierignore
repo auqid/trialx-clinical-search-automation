@@ -1,0 +1,13 @@
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.auth/
+package-lock.json
+
+# Tool scratch and investigation artifacts (not framework source)
+.playwright-mcp/
+report.md
+test-strategy.md
+contact-form-snapshot.md
