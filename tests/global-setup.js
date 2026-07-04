@@ -6,8 +6,7 @@ const fs = require('fs');
 /* Read the environment the same way playwright.config.js does. */
 require('dotenv').config({ path: path.resolve(process.cwd(), '.env') });
 
-const BASE_URL =
-  process.env.BASE_URL || 'https://dev-connect.ainfo.io/clinical-trials/listings/';
+const BASE_URL = process.env.BASE_URL || 'https://dev-connect.ainfo.io/clinical-trials/listings/';
 const STORAGE_STATE = path.resolve(process.cwd(), '.auth', 'consent.json');
 const CONSENT_TIMEOUT = 10_000;
 

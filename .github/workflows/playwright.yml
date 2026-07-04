@@ -8,18 +8,27 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    # CI runs headless against the shared dev server. GitHub sets CI=true, so the
+    # config uses workers: 1 + retries: 2. `.env` is gitignored, so provide the
+    # environment here (generous timeouts for the slow shared server).
+    env:
+      BASE_URL: https://dev-connect.ainfo.io/clinical-trials/listings/
+      NAVIGATION_TIMEOUT: 60000
+      TEST_TIMEOUT: 120000
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+          cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
-      - uses: actions/upload-artifact@v4
+      - name: Install Playwright browser (Chromium only — cheaper/faster on CI)
+        run: npx playwright install --with-deps chromium
+      - name: Run Playwright tests (Chromium, headless)
+        run: npx playwright test --project=chromium
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report

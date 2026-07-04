@@ -6,8 +6,6 @@ playwright/.cache/
 .auth/
 package-lock.json
 
-# Tool scratch and investigation artifacts (not framework source)
+# Tool scratch and prose docs (not framework source; large hand-formatted tables)
 .playwright-mcp/
-report.md
-test-strategy.md
-contact-form-snapshot.md
+docs/
