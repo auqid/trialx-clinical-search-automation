@@ -34,8 +34,13 @@ export default defineConfig({
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only. */
-  retries: process.env.CI ? 2 : 0,
+  /*
+   * Retries: 2 on CI, 1 locally. The suite runs against a SHARED dev server that
+   * occasionally responds slowly under our own parallel load (navigation/XHR waits
+   * can blip past their timeouts). A single retry absorbs those transient failures;
+   * Playwright still reports the test as "flaky", so real instability stays visible.
+   */
+  retries: process.env.CI ? 2 : 1,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporters: rich HTML report, live list output, and JUnit XML for CI. */

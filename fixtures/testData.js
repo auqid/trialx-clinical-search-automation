@@ -49,6 +49,13 @@ const phones = {
 };
 
 /**
+ * sort_by keys, in DOM order (strategy TC-S05). Verified in the DOM audit, but
+ * treated as a CONFIRM item — specs assert the reload/behaviour, not the literal
+ * ordering semantics of each key.
+ */
+const sortOptions = ['relevance', 'distance', 'last_updated', 'most_viewed'];
+
+/**
  * Consent combinations for #age_consent_checkbox + #cw-terms-conditions.
  * Only the both-checked case should allow submission.
  */
@@ -90,6 +97,7 @@ module.exports = {
   names,
   emailLimits,
   phones,
+  sortOptions,
   consentCombos,
   validContact,
   featuredTrial,
