@@ -28,12 +28,11 @@ class ContactFormPage extends BasePage {
     this.ageConsentCheckbox = page.locator('#age_consent_checkbox');
     this.termsConsentCheckbox = page.locator('#cw-terms-conditions');
 
-    // Submit is the visible primary CTA of the connect step (labelled "Next",
-    // or "Send" if a build renames it). Scoped to #step1 and filtered to visible
-    // so it doesn't collide with the site-selection step's "Next".
+    // Submit (primary CTA) of the "Send a message" step. Both the primary button
+    // AND the Back button carry aria-label="Send Message", so role/name is
+    // ambiguous — target the primary by its class inside the send-message form.
     this.submitButton = page
-      .locator('#step1')
-      .getByRole('button', { name: /next|send/i })
+      .locator('form[name="send-message"] .fas-button-primary')
       .filter({ visible: true });
 
     // Inline validation surfaces (no assertions here — exposed for specs to read).
@@ -48,9 +47,10 @@ class ContactFormPage extends BasePage {
 
   /**
    * Fill the provided text fields (only keys present are typed).
+   * Named `fillForm` (not `fill`) so it doesn't shadow the locator `fill()` name.
    * @param {{ firstName?: string, lastName?: string, email?: string, phone?: string }} data
    */
-  async fill({ firstName, lastName, email, phone } = {}) {
+  async fillForm({ firstName, lastName, email, phone } = {}) {
     if (firstName !== undefined) await this.firstNameInput.fill(firstName);
     if (lastName !== undefined) await this.lastNameInput.fill(lastName);
     if (email !== undefined) await this.emailInput.fill(email);
